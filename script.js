@@ -1,5 +1,5 @@
 // Define your OpenAI API key
-const apiKey = "your-openai-api-key-here";
+const apiKey = "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";
 
 // Function to ask a question and handle rate limits
 async function askQuestion(prompt) {
