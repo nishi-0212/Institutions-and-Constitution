@@ -1,5 +1,5 @@
-// Replace with your OpenAI API key
-const apiKey = "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";
+// Define your OpenAI API key
+const apiKey = "your-openai-api-key-here";
 
 // Function to ask a question and handle rate limits
 async function askQuestion(prompt) {
@@ -23,13 +23,20 @@ async function askQuestion(prompt) {
             });
 
             const data = await response.json();
-            return data.choices[0].message.content;
+
+            // Check if the response contains the expected data
+            if (data.choices && data.choices.length > 0) {
+                return data.choices[0].message.content;
+            } else {
+                throw new Error("Unexpected API response structure: " + JSON.stringify(data));
+            }
         } catch (error) {
             if (error.response && error.response.status === 429) {
                 console.error("Rate limit exceeded. Retrying in", retryDelay / 1000, "seconds...");
                 await new Promise(resolve => setTimeout(resolve, retryDelay));
                 retryDelay *= 2;
             } else {
+                // If there's any other error, throw it so that the catch block in `sendMessage` handles it.
                 throw error;
             }
         }
@@ -42,6 +49,11 @@ async function askQuestion(prompt) {
 async function sendMessage() {
     const messageInput = document.getElementById("messageInput");
     const message = messageInput.value;
+
+    if (!message) {
+        alert("Please enter a message.");
+        return;
+    }
 
     // Create a new message element for user
     const newMessage = document.createElement("li");
@@ -58,19 +70,24 @@ async function sendMessage() {
         chatbotMessage.classList.add('chatbot');
         document.getElementById("messages").appendChild(chatbotMessage);
     } catch (error) {
-        console.error("Error:", error);
-        alert("Error: " + error.message + "\nPlease try again later.");
+        // Display a custom error message for rate limit errors
+        if (error.message.includes("rate limit")) {
+            alert("Error: Rate limit exceeded, please try again later.");
+        } else {
+            console.error("Error occurred:", error); // Log other errors to the console
+            alert("Error: Something went wrong, please try again later."); // General error message
+        }
     }
 
     messageInput.value = "";
     scrollToBottom();
 }
 
-// Function to scroll to the bottom of the messages container
 function scrollToBottom() {
-    const messagesContainer = document.getElementById("messages");
-    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    const messages = document.getElementById("messages");
+    messages.scrollTop = messages.scrollHeight;
 }
 
 // Attach event listener to the send button
 document.getElementById("sendMessage").addEventListener("click", sendMessage);
+
