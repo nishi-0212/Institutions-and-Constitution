@@ -1,14 +1,34 @@
 /* General Body Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
 body {
     font-family: 'Cinzel', serif; /* Cinzel font applied to the entire body */
-    color: #000061; /* Navy blue for font */
+    color: white; /* Navy blue for font */
     margin: 0;
     padding: 0;
     background-color: #f4ece1; /* Muted white */
     position: relative;
     min-height: 100vh; /* Ensure the body takes full viewport height */
     overflow-y: auto; /* Enable vertical scrolling */
-}
+    background-image: url('https://i.pinimg.com/564x/a9/3f/66/a93f6644e20c5b74bfd0203698e0c656.jpg');
+    background-size: cover;
+    /* Ensures both images cover the background */
+    background-position: contain;
+    /* Centers both images */
+    background-repeat: no-repeat;
+    /* Prevents repeating the images */
+    background-blend-mode: overlay;
+    /* Blends the images together with overlay mode */
+    background-color: rgba(0, 0, 0, 0.79);
+    /* Optional: adds a slight dark overlay to enhance text readability */}
+
+
+
+    .page-header {
+        text-align: center;
+    }
+
 
 /* Container */
 .container {
@@ -22,39 +42,37 @@ body {
 header {
     background-color: #1c273c;
     color: white;
-    font-family: 'Cinzel', serif; /* Ensure the header uses Cinzel */
+    font-family: 'Cinzel', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px; /* Adjusted padding for smaller header */
+    padding: 20px;
     z-index: 10;
-    width: 100%;
-    position: sticky; /* Make the header sticky */
-    top: 0; /* Keep it stuck to the top */
-}
-
-header h1 {
+  
+    
+  }
+  
+  header h1 {
     margin: 0;
-    font-size: 36px; /* Adjusted header font size */
-}
-
-header nav ul {
+    font-size:50px;
+  }
+  
+  header nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    font-size: 18px;
-}
-
-header nav li {
+    font-size: 20px;
+  }
+  
+  header nav li {
     display: inline-block;
     margin-left: 20px;
-}
-
-header nav a {
+  }
+  
+  header nav a {
     text-decoration: none;
     color: white;
-    font-family: 'Cinzel', serif; /* Ensure nav links use Cinzel */
-}
+  }
 
 /* Chatbox Styles */
 #chatbox {
@@ -69,6 +87,22 @@ header nav a {
     overflow-y: auto; /* Make chatbox scrollable */
     font-family: 'Cinzel', serif; /* Ensure chatbox text uses Cinzel */
 }
+
+#input-container{
+    
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        overflow-y: auto; /* Make chatbox scrollable */
+        font-family: 'Cinzel', serif; /* Ensure chatbox text uses Cinzel */
+    
+}
+
+
 
 /* Messages Styles */
 #messages {
@@ -85,10 +119,7 @@ li {
 }
 
 /* Input Container */
-.input-container {
-    display: flex;
-    margin-top: 10px;
-}
+
 
 #messageInput {
     width: calc(100% - 120px);
