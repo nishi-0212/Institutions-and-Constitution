@@ -1,0 +1,138 @@
+/* General Body Styles */
+body {
+    font-family: 'Cinzel', serif; /* Cinzel font applied to the entire body */
+    color: #000061; /* Navy blue for font */
+    margin: 0;
+    padding: 0;
+    background-color: #f4ece1; /* Muted white */
+    position: relative;
+    min-height: 100vh; /* Ensure the body takes full viewport height */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Container */
+.container {
+    padding: 20px;
+    min-height: 100vh; /* Ensure the container takes full height */
+    overflow-y: auto; /* Enable scrolling for content */
+    box-sizing: border-box; /* Account for padding inside height */
+}
+
+/* Header Styles */
+header {
+    background-color: #1c273c;
+    color: white;
+    font-family: 'Cinzel', serif; /* Ensure the header uses Cinzel */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Adjusted padding for smaller header */
+    z-index: 10;
+    width: 100%;
+    position: sticky; /* Make the header sticky */
+    top: 0; /* Keep it stuck to the top */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 36px; /* Adjusted header font size */
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+}
+
+header nav li {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Cinzel', serif; /* Ensure nav links use Cinzel */
+}
+
+/* Chatbox Styles */
+#chatbox {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 300px; /* Fixed height */
+    overflow-y: auto; /* Make chatbox scrollable */
+    font-family: 'Cinzel', serif; /* Ensure chatbox text uses Cinzel */
+}
+
+/* Messages Styles */
+#messages {
+    list-style: none;
+    padding: 0;
+    max-height: 300px; /* Fixed height */
+    overflow-y: auto;
+    font-family: 'Cinzel', serif; /* Ensure messages use Cinzel */
+}
+
+li {
+    margin-bottom: 10px;
+    font-family: 'Cinzel', serif; /* Each message retains the Cinzel font */
+}
+
+/* Input Container */
+.input-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+#messageInput {
+    width: calc(100% - 120px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-family: 'Cinzel', serif; /* Input text uses Cinzel */
+}
+
+#sendMessage {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-family: 'Cinzel', serif; /* Button text uses Cinzel */
+}
+
+#sendMessage:hover {
+    background-color: #0069d9;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #183151; /* Use initial nav color */
+    color: #f4ece1; /* Muted white text */
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-family: 'Cinzel', serif; /* Footer text uses Cinzel */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        font-size: 18px;
+    }
+
+    #chatbox {
+        padding: 10px;
+    }
+}
